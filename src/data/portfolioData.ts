@@ -35,4 +35,89 @@ export const PORTFOLIO_DATA = {
     secondary: { text: "Contact Me", href: "#contact" },
     download: { text: "Download CV", href: "#" },
   },
+
+  about: {
+    sectionLabel: "ABOUT / 01",
+    headingLine1: "I turn data into",
+    headingLine2: "decisions that matter.",
+    concept: "From raw data to meaningful decisions.",
+    intro:
+      "I'm a Data Science undergraduate focused on turning complex data into practical insights and intelligent solutions. My interests span machine learning, applied AI, analytics, and real-world problem solving.",
+    dataFlowStages: [
+      {
+        id: "data",
+        step: "01",
+        name: "DATA",
+        role: "Raw Inputs & Exploration",
+        coord: "inputs",
+        desc: "Ingesting, cleaning, and understanding foundational data inputs",
+        detail: "Gathering and exploring foundational data without bias.",
+      },
+      {
+        id: "pattern",
+        step: "02",
+        name: "PATTERN",
+        role: "Structure, Trends & Relationships",
+        coord: "features",
+        desc: "Identifying distributions, correlations, and key variables",
+        detail: "Discovering correlations and natural clusters in high-dimensional data.",
+      },
+      {
+        id: "model",
+        step: "03",
+        name: "MODEL",
+        role: "Learning, Prediction & Evaluation",
+        coord: "f(x) → ŷ",
+        desc: "Training, evaluating, and validating machine learning models",
+        detail: "Training, evaluating and validating predictive systems.",
+      },
+      {
+        id: "insight",
+        step: "04",
+        name: "INSIGHT",
+        role: "Interpretation & Understanding",
+        coord: "inference",
+        desc: "Translating model outputs into clear, understandable findings",
+        detail: "Extracting clear, interpretable signals from complex model behavior.",
+      },
+      {
+        id: "decision",
+        step: "05",
+        name: "DECISION",
+        role: "Actionable Outcomes",
+        coord: "impact",
+        desc: "Applying insights to solve real-world problems effectively",
+        detail: "Transforming verified evidence into practical, high-impact action.",
+      },
+    ],
+    focusAreas: [
+      {
+        id: "01",
+        title: "Web Development",
+        subtitle: "Full-stack Web Apps & APIs",
+        secondaryPhrase: "Digital Products",
+      },
+
+      {
+        id: "02",
+        title: "AI / Machine Learning",
+        subtitle: "Models & Applied AI",
+        secondaryPhrase: "Intelligent Systems",
+      },
+
+      {
+        id: "03",
+        title: "Data Analysis",
+        subtitle: "Insights & Visualization",
+        secondaryPhrase: "Better Decisions",
+      },
+
+      {
+        id: "04",
+        title: "Data Engineering",
+        subtitle: "Pipelines & Data Systems",
+        secondaryPhrase: "Reliable Foundations",
+      },
+    ],
+  },
 };

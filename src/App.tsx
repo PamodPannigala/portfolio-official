@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/hero/Hero';
+import { AboutSection } from './components/about/AboutSection';
 
 export const App: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ export const App: React.FC = () => {
       {/* Main Content Area */}
       <main id="main-content" className="overflow-x-hidden w-full">
         <Hero />
+        <AboutSection />
       </main>
     </div>
   );
