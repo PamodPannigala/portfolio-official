@@ -80,6 +80,31 @@ export interface ExperienceSectionData {
   experiences: ExperienceItem[];
 }
 
+export interface TechnologyItem {
+  id: string;
+  name: string;
+  category: string;
+  relationshipHint?: string;
+}
+
+export interface TechLane {
+  id: string;
+  index: string;
+  title: string;
+  descriptor: string;
+  motifType: 'analytics' | 'pipeline' | 'fullstack' | 'databases';
+  technologies: TechnologyItem[];
+}
+
+export interface TechStackSectionData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+  lanes: TechLane[];
+  workflowTools: TechnologyItem[];
+}
+
 export interface ProjectsSectionData {
   sectionLabel: string;
   headingLine1: string;
@@ -367,4 +392,70 @@ export const PORTFOLIO_DATA = {
       },
     ],
   } as ExperienceSectionData,
+
+  techStackSection: {
+    sectionLabel: "TECH STACK / 04",
+    headingLine1: "Tools behind",
+    headingLine2: "the work.",
+    supportingLine:
+      "A focused toolkit across data, engineering and full-stack development.",
+    lanes: [
+      {
+        id: "data-analytics",
+        index: "01",
+        title: "DATA & ANALYTICS",
+        descriptor: "Analysis · Visualization · Statistics",
+        motifType: "analytics",
+        technologies: [
+          { id: "python", name: "Python", category: "Data & Analytics", relationshipHint: "Data → Statistical Modeling" },
+          { id: "r", name: "R", category: "Data & Analytics", relationshipHint: "Exploratory Analysis → Hypothesis Testing" },
+          { id: "sql", name: "SQL", category: "Data & Analytics", relationshipHint: "Querying → Relational Extraction" },
+          { id: "power-bi", name: "Power BI", category: "Data & Analytics", relationshipHint: "Analytical Dashboards → Business Intelligence" },
+          { id: "excel", name: "Microsoft Excel", category: "Data & Analytics", relationshipHint: "Modeling → Quantitative Worksheets" },
+        ],
+      },
+      {
+        id: "data-engineering",
+        index: "02",
+        title: "DATA ENGINEERING & BI",
+        descriptor: "Pipelines · Warehousing · OLAP",
+        motifType: "pipeline",
+        technologies: [
+          { id: "sql-server", name: "SQL Server", category: "Data Engineering & BI", relationshipHint: "Enterprise Relational Engine → Star Schema" },
+          { id: "ssis", name: "SSIS", category: "Data Engineering & BI", relationshipHint: "Automated ETL Pipeline → Data Flows" },
+          { id: "ssas", name: "SSAS", category: "Data Engineering & BI", relationshipHint: "Multi-dimensional OLAP Cubes → Hierarchies" },
+          { id: "etl", name: "ETL", category: "Data Engineering & BI", relationshipHint: "Extract → Transform → Load Pipeline" },
+        ],
+      },
+      {
+        id: "full-stack",
+        index: "03",
+        title: "FULL-STACK DEVELOPMENT",
+        descriptor: "Interfaces · APIs · Backend Systems",
+        motifType: "fullstack",
+        technologies: [
+          { id: "react", name: "React", category: "Full-Stack Development", relationshipHint: "Frontend UI → Component Architecture" },
+          { id: "java", name: "Java", category: "Full-Stack Development", relationshipHint: "Object-Oriented Core → Enterprise Backend" },
+          { id: "spring-boot", name: "Spring Boot", category: "Full-Stack Development", relationshipHint: "REST APIs → Microservice Infrastructure" },
+          { id: "node-js", name: "Node.js", category: "Full-Stack Development", relationshipHint: "Server-side Runtime → Asynchronous Services" },
+        ],
+      },
+      {
+        id: "databases",
+        index: "04",
+        title: "DATABASES",
+        descriptor: "Relational · NoSQL",
+        motifType: "databases",
+        technologies: [
+          { id: "mysql", name: "MySQL", category: "Databases", relationshipHint: "Relational Storage → ACID Integrity" },
+          { id: "mongodb", name: "MongoDB", category: "Databases", relationshipHint: "Document Store → Flexible Schema" },
+        ],
+      },
+    ],
+    workflowTools: [
+      { id: "git", name: "Git", category: "Tools / Workflow", relationshipHint: "Version Control" },
+      { id: "github", name: "GitHub", category: "Tools / Workflow", relationshipHint: "Repository & Collaboration" },
+      { id: "postman", name: "Postman", category: "Tools / Workflow", relationshipHint: "API Testing & Validation" },
+    ],
+  } as TechStackSectionData,
 };

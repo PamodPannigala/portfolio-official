@@ -75,7 +75,7 @@ export const ExperienceSection: React.FC = () => {
       id="experience"
       ref={sectionRef}
       aria-label="Professional Experience and Current Chapter"
-      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 bg-deep-space overflow-hidden scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12 lg:pb-14 bg-deep-space overflow-hidden scroll-mt-20"
     >
       {/* Section Transition Veil */}
       <div
