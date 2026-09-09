@@ -167,6 +167,16 @@ export interface EducationSectionData {
   credentials: CredentialItem[];
 }
 
+export interface ContactSectionData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+  professionalFocus: string;
+  email: string;
+}
+
+
 export const PORTFOLIO_DATA = {
   name: "Pamod Pannigala",
   brandName: "PAMOD PANNIGALA",
@@ -174,6 +184,8 @@ export const PORTFOLIO_DATA = {
   badgeText: "Data Science Undergraduate",
   tagline: "''Turning data into meaningful insights and intelligent solutions.''",
   aboutBrief: "Focused on machine learning, predictive modeling, data visualization, and intelligent web applications.",
+  email: "pamod0522@gmail.com",
+
 
   navLinks: [
     { name: "Home", href: "#home" },
@@ -625,6 +637,17 @@ export const PORTFOLIO_DATA = {
       },
     ],
   },
+
+  contactSection: {
+    sectionLabel: "CONTACT / 06",
+    headingLine1: "Have an idea worth",
+    headingLine2: "building?",
+    supportingLine:
+      "I'm open to opportunities, collaborations, and conversations around AI, data, and software engineering.",
+    professionalFocus: "AI / ML · DATA SCIENCE · SOFTWARE ENGINEERING",
+    email: "pamod0522@gmail.com",
+  },
 };
+
 
 

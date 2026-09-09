@@ -7,6 +7,7 @@ import { ProjectsSection } from './components/projects/ProjectsSection';
 import { ExperienceSection } from './components/experience/ExperienceSection';
 import { TechStackSection } from './components/techstack/TechStackSection';
 import { EducationSection } from './components/education/EducationSection';
+import { ContactSection } from './components/contact/ContactSection';
 import { ProjectsArchivePage } from './components/projects/archive/ProjectsArchivePage';
 import { CertificationsArchivePage } from './components/education/archive/CertificationsArchivePage';
 
@@ -32,6 +33,7 @@ const AppContent: React.FC = () => {
             <ExperienceSection />
             <TechStackSection />
             <EducationSection />
+            <ContactSection />
           </>
         )}
       </main>
