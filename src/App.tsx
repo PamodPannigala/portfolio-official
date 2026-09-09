@@ -4,6 +4,7 @@ import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/hero/Hero';
 import { AboutSection } from './components/about/AboutSection';
 import { ProjectsSection } from './components/projects/ProjectsSection';
+import { ExperienceSection } from './components/experience/ExperienceSection';
 import { ProjectsArchivePage } from './components/projects/archive/ProjectsArchivePage';
 
 const AppContent: React.FC = () => {
@@ -23,6 +24,7 @@ const AppContent: React.FC = () => {
             <Hero />
             <AboutSection />
             <ProjectsSection />
+            <ExperienceSection />
           </>
         )}
       </main>

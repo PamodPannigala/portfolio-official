@@ -114,7 +114,7 @@ export const ProjectsSection: React.FC = () => {
       id="projects"
       ref={sectionRef}
       aria-label="Selected Work and Featured Projects"
-      className="relative w-full pt-6 sm:pt-8 lg:pt-10 pb-12 sm:pb-16 lg:pb-20 bg-deep-space scroll-mt-20"
+      className="relative w-full pt-6 sm:pt-8 lg:pt-10 pb-10 sm:pb-12 lg:pb-14 bg-deep-space scroll-mt-20"
     >
       {/* Section Transition Veil */}
       <div

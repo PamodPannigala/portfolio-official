@@ -43,6 +43,43 @@ export interface ProjectsArchiveData {
   supportingLine: string;
 }
 
+export interface ExperienceContextArea {
+  id: string;
+  step: string;
+  title: string;
+  shortTitle: string;
+  descriptor: string;
+  highlight: string;
+}
+
+export interface ExperienceItem {
+  id: string;
+  role: string;
+  company: string;
+  team: string;
+  type: string;
+  period: string;
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  location: string;
+  workMode: string;
+  summary: string;
+  contextTags: string[];
+  contextAreas: ExperienceContextArea[];
+  logoText: string;
+}
+
+export interface ExperienceSectionData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+  chapterLabel: string;
+  chapterPeriod: string;
+  experiences: ExperienceItem[];
+}
+
 export interface ProjectsSectionData {
   sectionLabel: string;
   headingLine1: string;
@@ -263,4 +300,71 @@ export const PORTFOLIO_DATA = {
     supportingLine:
       "A growing collection of projects across full-stack development, AI/ML, data engineering, analytics, and statistical problem solving.",
   },
+
+  experienceSection: {
+    sectionLabel: "EXPERIENCE / 03",
+    headingLine1: "Building experience where",
+    headingLine2: "AI meets the real world.",
+    supportingLine:
+      "Hands-on exposure to AI/ML, data science, and enterprise technology within SLT-MOBITEL's Digital Lab.",
+    chapterLabel: "CURRENT CHAPTER",
+    chapterPeriod: "2026 — PRESENT",
+    experiences: [
+      {
+        id: "01",
+        role: "AI/ML Engineer Intern",
+        company: "SLT-MOBITEL",
+        team: "Digital Lab",
+        type: "Internship",
+        period: "Aug 2026 — Present",
+        startDate: "Aug 2026",
+        endDate: "Present",
+        current: true,
+        location: "Colombo, Sri Lanka",
+        workMode: "On-site",
+        summary:
+          "Gaining hands-on exposure to AI/ML through technical training, enterprise technology, and supervised work within the Digital Lab.",
+        contextTags: ["Machine Learning", "Data Science", "Enterprise IT"],
+        contextAreas: [
+          {
+            id: "ai-ml",
+            step: "01",
+            title: "AI / ML TRAINING",
+            shortTitle: "AI & Machine Learning Technologies",
+            descriptor:
+              "Training activities related to AI and machine learning technologies.",
+            highlight: "AI & Machine Learning Technologies",
+          },
+          {
+            id: "data-science",
+            step: "02",
+            title: "DATA SCIENCE",
+            shortTitle: "Data-Oriented Practical Exposure",
+            descriptor:
+              "Developing practical exposure to data-oriented and intelligent problem solving.",
+            highlight: "Data-Oriented Practical Exposure",
+          },
+          {
+            id: "enterprise-it",
+            step: "03",
+            title: "ENTERPRISE IT",
+            shortTitle: "Enterprise IT Environment",
+            descriptor:
+              "Exposure to AI technologies within an enterprise IT environment.",
+            highlight: "Enterprise IT Environment",
+          },
+          {
+            id: "technical-work",
+            step: "04",
+            title: "TECHNICAL WORK",
+            shortTitle: "Assigned IT Tasks",
+            descriptor:
+              "Assigned IT-related work carried out under Digital Lab supervision.",
+            highlight: "Assigned IT Tasks",
+          },
+        ],
+        logoText: "SLT-MOBITEL",
+      },
+    ],
+  } as ExperienceSectionData,
 };
