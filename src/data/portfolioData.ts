@@ -185,6 +185,7 @@ export const PORTFOLIO_DATA = {
   tagline: "''Turning data into meaningful insights and intelligent solutions.''",
   aboutBrief: "Focused on machine learning, predictive modeling, data visualization, and intelligent web applications.",
   email: "pamod0522@gmail.com",
+  location: "Colombo, Sri Lanka",
 
 
   navLinks: [

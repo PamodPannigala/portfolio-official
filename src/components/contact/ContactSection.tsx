@@ -75,7 +75,7 @@ export const ContactSection: React.FC = () => {
       id="contact"
       ref={sectionRef}
       aria-label="Contact and Professional Inquiries"
-      className="relative w-full pt-12 sm:pt-16 lg:pt-20 pb-4 bg-deep-space overflow-hidden scroll-mt-20"
+      className="relative w-full pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 lg:pb-10 bg-deep-space overflow-hidden scroll-mt-20"
     >
       {/* Section Transition Ambient Veil */}
       <div
@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
       {/* Main Content Container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         {/* Subtle Top Divider */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent mb-10 sm:mb-14" />
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent mb-6 sm:mb-7 lg:mb-8" />
 
         {/* 2-Column Composition: Left Editorial & Actions (58%), Right Signal Convergence Visual (42%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

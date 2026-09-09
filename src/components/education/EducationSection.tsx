@@ -80,7 +80,7 @@ export const EducationSection: React.FC = () => {
         id="education"
         ref={sectionRef}
         aria-label="Academic Education and Verified Credentials"
-        className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-14 sm:pb-16 lg:pb-20 bg-deep-space overflow-hidden scroll-mt-20"
+        className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-6 sm:pb-8 lg:pb-10 bg-deep-space overflow-hidden scroll-mt-20"
       >
         {/* Section Transition Ambient Veil */}
         <div
