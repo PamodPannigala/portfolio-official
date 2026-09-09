@@ -106,7 +106,7 @@ export const AboutSection: React.FC = () => {
       id="about"
       ref={sectionRef}
       aria-label="About Pamod Pannigala"
-      className="relative w-full min-h-screen pt-12 sm:pt-16 lg:pt-20 pb-20 sm:pb-24 lg:pb-32 bg-deep-space overflow-hidden scroll-mt-24"
+      className="relative w-full min-h-screen pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-10 lg:pb-12 bg-deep-space overflow-hidden scroll-mt-24"
     >
       {/* SECTION TRANSITION VEIL:
           Gently dissipates the 3D Hero environment into calm, deep-space dark atmosphere.

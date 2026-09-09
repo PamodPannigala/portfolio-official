@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Github, Linkedin, Menu, X } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/data/portfolioData';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
+import { useAppRoute } from '@/context/RouteContext';
 
 export const Navbar: React.FC = () => {
   const isScrolled = useScrollPosition(20);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const { isProjectsArchive, navigate } = useAppRoute();
 
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -31,6 +33,41 @@ export const Navbar: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, name: string) => {
+    e.preventDefault();
+    closeMobileMenu();
+
+    if (isProjectsArchive) {
+      if (name === 'Projects') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      navigate(href);
+    } else {
+      if (href.startsWith('#')) {
+        const id = href.replace('#', '');
+        const elem = document.getElementById(id);
+        if (elem) {
+          elem.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      } else {
+        navigate(href);
+      }
+    }
+  };
+
+  const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMobileMenu();
+    if (isProjectsArchive) {
+      navigate('/');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,7 +79,8 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand / Name Logo */}
         <a
-          href="#home"
+          href="/"
+          onClick={handleBrandClick}
           className="group flex items-center gap-2 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent-cyan rounded-md"
           aria-label="Pamod Pannigala Portfolio Home"
         >
@@ -55,16 +93,26 @@ export const Navbar: React.FC = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
           <ul className="flex items-center space-x-6">
-            {PORTFOLIO_DATA.navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="inline-block font-body text-sm font-medium text-text-secondary hover:text-accent-cyan transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-cyan rounded px-2 py-1"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {PORTFOLIO_DATA.navLinks.map((link) => {
+              const isProjectsLink = link.name === 'Projects';
+              const isActive = isProjectsArchive && isProjectsLink;
+
+              return (
+                <li key={link.name}>
+                  <a
+                    href={isProjectsArchive && !isProjectsLink ? `/${link.href}` : link.href}
+                    onClick={(e) => handleNavClick(e, link.href, link.name)}
+                    className={`inline-block font-body text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-cyan rounded px-2 py-1 ${
+                      isActive
+                        ? 'text-accent-cyan font-semibold'
+                        : 'font-medium text-text-secondary hover:text-accent-cyan'
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Social Links */}
@@ -106,17 +154,26 @@ export const Navbar: React.FC = () => {
           className="md:hidden bg-navy-card/95 backdrop-blur-xl border-b border-navy-border px-4 pt-3 pb-6 space-y-4 shadow-2xl transition-all duration-300"
         >
           <ul className="flex flex-col space-y-1">
-            {PORTFOLIO_DATA.navLinks.map((link) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  onClick={closeMobileMenu}
-                  className="flex items-center min-h-[44px] font-body text-base font-medium text-text-secondary hover:text-accent-cyan transition-colors px-3 rounded-lg hover:bg-white/5 active:bg-white/10"
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {PORTFOLIO_DATA.navLinks.map((link) => {
+              const isProjectsLink = link.name === 'Projects';
+              const isActive = isProjectsArchive && isProjectsLink;
+
+              return (
+                <li key={link.name}>
+                  <a
+                    href={isProjectsArchive && !isProjectsLink ? `/${link.href}` : link.href}
+                    onClick={(e) => handleNavClick(e, link.href, link.name)}
+                    className={`flex items-center min-h-[44px] font-body text-base px-3 rounded-lg hover:bg-white/5 active:bg-white/10 transition-colors ${
+                      isActive
+                        ? 'text-accent-cyan font-semibold'
+                        : 'font-medium text-text-secondary hover:text-accent-cyan'
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
           <div className="pt-3 border-t border-navy-border flex items-center space-x-6 px-3">
             {PORTFOLIO_DATA.socialLinks.map((social) => (

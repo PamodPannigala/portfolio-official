@@ -9,6 +9,48 @@ export interface SocialLink {
   icon: 'github' | 'linkedin';
 }
 
+export interface ProjectCapability {
+  index: string;
+  title: string;
+}
+
+export interface ProjectItem {
+  id: string;
+  slug: string;
+  navLabel: string;
+  shortLabel?: string;
+  conceptPhase: string;
+  conceptLabel?: string;
+  category: string;
+  categories: string[];
+  title: string;
+  fullTitle: string;
+  date: string;
+  description: string;
+  shortDescription?: string;
+  technologies: string[];
+  capabilities: ProjectCapability[];
+  githubUrl?: string;
+  caseStudyUrl?: string | null;
+  featured: boolean;
+  visualType?: 'campus' | 'f1' | 'service' | string;
+}
+
+export interface ProjectsArchiveData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+}
+
+export interface ProjectsSectionData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+  projects: ProjectItem[];
+}
+
 export const PORTFOLIO_DATA = {
   name: "Pamod Pannigala",
   brandName: "PAMOD PANNIGALA",
@@ -119,5 +161,106 @@ export const PORTFOLIO_DATA = {
         secondaryPhrase: "Reliable Foundations",
       },
     ],
+  },
+
+  projectsSection: {
+    sectionLabel: "SELECTED WORK / 02",
+    headingLine1: "From systems",
+    headingLine2: "to insight.",
+    supportingLine: "Selected work across intelligent applications, data engineering and analytical problem solving.",
+    projects: [
+      {
+        id: "01",
+        slug: "smart-campus-hub",
+        navLabel: "CAMPUS OPERATIONS",
+        shortLabel: "Campus Operations",
+        conceptPhase: "BUILD",
+        conceptLabel: "BUILD",
+        category: "FULL-STACK · APPLIED AI",
+        categories: ["Full-Stack", "AI / ML"],
+        title: "Smart Campus Operations Hub",
+        fullTitle: "Smart Campus Operations Hub – Facilities and Assets Management Module",
+        date: "Mar — Apr 2026",
+        description:
+          "A full-stack campus resource management system combining asset tracking, operational analytics, reporting, and AI-assisted equipment health insights.",
+        shortDescription:
+          "A full-stack campus resource management system combining QR asset tracking, operational analytics, and AI equipment health scoring.",
+        technologies: ["React", "Java", "Spring Boot", "MySQL", "REST API"],
+        capabilities: [
+          { index: "01", title: "Asset Search & Filtering" },
+          { index: "02", title: "Operational Analytics" },
+          { index: "03", title: "QR Asset Tracking" },
+          { index: "04", title: "Equipment Health Scoring" },
+        ],
+        githubUrl: "https://github.com/PamodPannigala",
+        caseStudyUrl: null,
+        featured: true,
+        visualType: "campus",
+      },
+      {
+        id: "02",
+        slug: "f1-analytics-warehouse",
+        navLabel: "F1 ANALYTICS",
+        shortLabel: "F1 Analytics",
+        conceptPhase: "ENGINEER",
+        conceptLabel: "ENGINEER",
+        category: "DATA ENGINEERING · BUSINESS INTELLIGENCE",
+        categories: ["Data Engineering", "Business Intelligence"],
+        title: "Formula 1 Analytics Warehouse",
+        fullTitle: "Formula 1 Racing Data Warehouse, SSAS Cube, and Power BI Report",
+        date: "Jan — Jun 2026",
+        description:
+          "An end-to-end Formula 1 analytics platform built around ETL pipelines, dimensional modeling, OLAP analysis, and interactive business intelligence reporting.",
+        shortDescription:
+          "An end-to-end Formula 1 analytics platform featuring SSIS ETL pipelines, star schema warehouse, SSAS OLAP cubes, and Power BI dashboards.",
+        technologies: ["SQL", "SSIS", "SSAS", "Power BI", "Excel"],
+        capabilities: [
+          { index: "01", title: "ETL Pipeline Design" },
+          { index: "02", title: "Dimensional Modeling" },
+          { index: "03", title: "OLAP Cube Architecture" },
+          { index: "04", title: "Analytical Dashboards" },
+        ],
+        githubUrl: "https://github.com/PamodPannigala",
+        caseStudyUrl: null,
+        featured: true,
+        visualType: "f1",
+      },
+      {
+        id: "03",
+        slug: "accommodation-service-quality",
+        navLabel: "SERVICE QUALITY",
+        shortLabel: "Service Quality",
+        conceptPhase: "ANALYZE",
+        conceptLabel: "ANALYZE",
+        category: "DATA ANALYSIS · STATISTICS",
+        categories: ["Data Analysis", "Statistics"],
+        title: "Accommodation Service Quality Analysis",
+        fullTitle: "Accommodation Service Quality Analysis Using R",
+        date: "Jan — Jun 2026",
+        description:
+          "A statistical investigation of accommodation service quality using exploratory analysis, hypothesis testing, and regression to identify factors associated with customer satisfaction.",
+        shortDescription:
+          "An empirical statistical study using exploratory analysis, hypothesis testing, and regression modeling to isolate accommodation satisfaction drivers.",
+        technologies: ["R", "RStudio", "Excel"],
+        capabilities: [
+          { index: "01", title: "Data Validation" },
+          { index: "02", title: "Correlation Analysis" },
+          { index: "03", title: "Hypothesis Testing" },
+          { index: "04", title: "Regression Modeling" },
+        ],
+        githubUrl: "https://github.com/PamodPannigala",
+        caseStudyUrl: null,
+        featured: true,
+        visualType: "service",
+      },
+    ],
+  },
+
+  projectsArchive: {
+    sectionLabel: "PROJECTS / ARCHIVE",
+    headingLine1: "All work.",
+    headingLine2: "Built across systems, data & intelligence.",
+    supportingLine:
+      "A growing collection of projects across full-stack development, AI/ML, data engineering, analytics, and statistical problem solving.",
   },
 };
