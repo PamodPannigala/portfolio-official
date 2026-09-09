@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export type AppRoute = '/' | '/projects';
+export type AppRoute = '/' | '/projects' | '/certifications';
 
 export interface RouteState {
   currentPath: string;
   isProjectsArchive: boolean;
+  isCertificationsArchive: boolean;
   navigate: (to: string) => void;
 }
 
@@ -14,6 +15,9 @@ export const useRoute = (): RouteState => {
     const path = window.location.pathname.toLowerCase().replace(/\/$/, '');
     if (path === '/projects' || window.location.hash === '#/projects') {
       return '/projects';
+    }
+    if (path === '/certifications' || window.location.hash === '#/certifications') {
+      return '/certifications';
     }
     return '/';
   };
@@ -33,7 +37,7 @@ export const useRoute = (): RouteState => {
     if (typeof window === 'undefined') return;
 
     // Handle hash links when targeting homepage from archive
-    if (to.startsWith('/#') || (to.startsWith('#') && currentPath === '/projects')) {
+    if (to.startsWith('/#') || (to.startsWith('#') && currentPath !== '/')) {
       const targetHash = to.startsWith('/#') ? to.slice(1) : to;
       window.history.pushState({}, '', '/' + targetHash);
       setCurrentPath('/');
@@ -56,6 +60,13 @@ export const useRoute = (): RouteState => {
       return;
     }
 
+    if (to === '/certifications') {
+      window.history.pushState({}, '', '/certifications');
+      setCurrentPath('/certifications');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      return;
+    }
+
     if (to === '/' || to === '') {
       window.history.pushState({}, '', '/');
       setCurrentPath('/');
@@ -72,6 +83,8 @@ export const useRoute = (): RouteState => {
   return {
     currentPath,
     isProjectsArchive: currentPath === '/projects',
+    isCertificationsArchive: currentPath === '/certifications',
     navigate,
   };
 };
+

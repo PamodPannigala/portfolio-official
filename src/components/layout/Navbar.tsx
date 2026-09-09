@@ -7,7 +7,8 @@ import { useAppRoute } from '@/context/RouteContext';
 export const Navbar: React.FC = () => {
   const isScrolled = useScrollPosition(20);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
-  const { isProjectsArchive, navigate } = useAppRoute();
+  const { isProjectsArchive, isCertificationsArchive, navigate } = useAppRoute();
+  const isArchive = isProjectsArchive || isCertificationsArchive;
 
   const toggleMobileMenu = () => setMobileMenuOpen((prev) => !prev);
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -37,8 +38,8 @@ export const Navbar: React.FC = () => {
     e.preventDefault();
     closeMobileMenu();
 
-    if (isProjectsArchive) {
-      if (name === 'Projects') {
+    if (isArchive) {
+      if (isProjectsArchive && name === 'Projects') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
       }
@@ -61,7 +62,7 @@ export const Navbar: React.FC = () => {
   const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     closeMobileMenu();
-    if (isProjectsArchive) {
+    if (isArchive) {
       navigate('/');
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -100,7 +101,7 @@ export const Navbar: React.FC = () => {
               return (
                 <li key={link.name}>
                   <a
-                    href={isProjectsArchive && !isProjectsLink ? `/${link.href}` : link.href}
+                    href={isArchive && !isActive ? `/${link.href}` : link.href}
                     onClick={(e) => handleNavClick(e, link.href, link.name)}
                     className={`inline-block font-body text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-cyan rounded px-2 py-1 ${
                       isActive
@@ -161,7 +162,7 @@ export const Navbar: React.FC = () => {
               return (
                 <li key={link.name}>
                   <a
-                    href={isProjectsArchive && !isProjectsLink ? `/${link.href}` : link.href}
+                    href={isArchive && !isActive ? `/${link.href}` : link.href}
                     onClick={(e) => handleNavClick(e, link.href, link.name)}
                     className={`flex items-center min-h-[44px] font-body text-base px-3 rounded-lg hover:bg-white/5 active:bg-white/10 transition-colors ${
                       isActive

@@ -5,7 +5,7 @@ export interface GenericProjectPreviewProps {
   category: string;
 }
 
-export const GenericProjectPreview: React.FC<GenericProjectPreviewProps> = ({ title, category }) => {
+export const GenericProjectPreview: React.FC<GenericProjectPreviewProps> = ({ title }) => {
   return (
     <div className="w-full h-28 sm:h-32 bg-[#040915]/80 border border-white/[0.05] rounded-md p-3 relative overflow-hidden flex items-center justify-center group-hover:border-accent-cyan/30 transition-colors duration-300">
       <svg

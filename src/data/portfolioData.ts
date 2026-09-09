@@ -43,6 +43,14 @@ export interface ProjectsArchiveData {
   supportingLine: string;
 }
 
+export interface CertificationsArchiveData {
+  sectionLabel: string;
+  headingLine1: string;
+  headingLine2: string;
+  supportingLine: string;
+}
+
+
 export interface ExperienceContextArea {
   id: string;
   step: string;
@@ -105,12 +113,58 @@ export interface TechStackSectionData {
   workflowTools: TechnologyItem[];
 }
 
-export interface ProjectsSectionData {
+export interface CourseworkCluster {
+  id: string;
+  index: string;
+  title: string;
+  subtitle: string;
+  courses: string[];
+}
+
+export interface EducationData {
+  degree: string;
+  degreePrefix: string;
+  degreeSubject: string;
+  specialization: string;
+  institution: string;
+  institutionShort: string;
+  location: string;
+  status: string;
+  expectedCompletion: string;
+  clusters: CourseworkCluster[];
+}
+
+export interface CredentialItem {
+  id: string;
+  index: string;
+  title: string;
+  issuer: string;
+  issuerId?: string | null;
+  issuerLogo?: string | null;
+  status?: string | null;
+  year: string;
+  displayYear: string;
+  credentialId?: string | null;
+  certificateImage: string;
+  certificatePdf?: string | null;
+  credentialUrl?: string | null;
+  description?: string | null;
+  captionIssuer?: string | null;
+  badgeText?: string | null;
+  skills: string[];
+}
+
+export interface EducationSectionData {
   sectionLabel: string;
   headingLine1: string;
   headingLine2: string;
   supportingLine: string;
-  projects: ProjectItem[];
+  academicChapterLabel: string;
+  certificationsChapterLabel: string;
+  certificationsSubtitle: string;
+  education: EducationData;
+  credential: CredentialItem;
+  credentials: CredentialItem[];
 }
 
 export const PORTFOLIO_DATA = {
@@ -326,6 +380,15 @@ export const PORTFOLIO_DATA = {
       "A growing collection of projects across full-stack development, AI/ML, data engineering, analytics, and statistical problem solving.",
   },
 
+  certificationsArchive: {
+    sectionLabel: "CREDENTIALS / ARCHIVE",
+    headingLine1: "Professional learning",
+    headingLine2: "beyond the classroom.",
+    supportingLine:
+      "A growing record of industry certifications and technical learning completed alongside my academic path.",
+  },
+
+
   experienceSection: {
     sectionLabel: "EXPERIENCE / 03",
     headingLine1: "Building experience where",
@@ -458,4 +521,110 @@ export const PORTFOLIO_DATA = {
       { id: "postman", name: "Postman", category: "Tools / Workflow", relationshipHint: "API Testing & Validation" },
     ],
   } as TechStackSectionData,
+
+  educationSection: {
+    sectionLabel: "EDUCATION / 05",
+    headingLine1: "Built on a foundation",
+    headingLine2: "of data and computing.",
+    supportingLine:
+      "Academic grounding in information technology, data science, systems, and analytical thinking.",
+    academicChapterLabel: "ACADEMIC PATH / 01",
+    certificationsChapterLabel: "CERTIFICATIONS / 02",
+    certificationsSubtitle: "Industry certifications and technical learning paths.",
+    education: {
+      degree: "B.Sc. (Hons) in Information Technology",
+      degreePrefix: "B.Sc. (Hons) in",
+      degreeSubject: "Information Technology",
+      specialization: "Specializing in Data Science",
+      institution: "Sri Lanka Institute of Information Technology",
+      institutionShort: "SLIIT · Colombo",
+      location: "Colombo, Sri Lanka",
+      status: "3rd Year Undergraduate",
+      expectedCompletion: "Expected December 2027",
+      clusters: [
+        {
+          id: "data-systems",
+          index: "01",
+          title: "DATA SYSTEMS",
+          subtitle: "Warehousing · Databases · Modeling",
+          courses: [
+            "Data Warehousing & Business Intelligence",
+            "Database Management Systems",
+            "Information Systems & Data Modeling",
+          ],
+        },
+        {
+          id: "computing-foundations",
+          index: "02",
+          title: "COMPUTING FOUNDATIONS",
+          subtitle: "Algorithms · Object-Oriented Programming",
+          courses: [
+            "Data Structures & Algorithms",
+            "Object-Oriented Programming",
+          ],
+        },
+        {
+          id: "analytical-foundations",
+          index: "03",
+          title: "ANALYTICAL FOUNDATIONS",
+          subtitle: "Probability · Statistics",
+          courses: [
+            "Probability & Statistics",
+          ],
+        },
+      ],
+    },
+    credential: {
+      id: "mongodb-java-developer",
+      index: "01",
+      title: "MongoDB Java Developer Path",
+      issuer: "MongoDB",
+      issuerId: "mongodb",
+      issuerLogo: null,
+      status: "COMPLETED",
+      year: "2026",
+      displayYear: "Completed 2026",
+      credentialId: "MDBzs0eieusr3",
+      certificateImage: "/certificates/mongodb-java-developer-certificate.png",
+      certificatePdf: "/certificates/IT23762886_Mongo_Certificate.pdf",
+      credentialUrl: null,
+      description: "Official learning path covering data modeling, Java driver mechanics, aggregation pipelines, and indexing.",
+      captionIssuer: "MONGODB OFFICIAL",
+      skills: [
+        "Java Driver",
+        "CRUD Operations",
+        "Aggregation Pipelines",
+        "Schema Modeling",
+        "Indexing",
+      ],
+    },
+    credentials: [
+      {
+        id: "mongodb-java-developer",
+        index: "01",
+        title: "MongoDB Java Developer Path",
+        issuer: "MongoDB",
+        issuerId: "mongodb",
+        issuerLogo: null,
+        status: "COMPLETED",
+        year: "2026",
+        displayYear: "Completed 2026",
+        credentialId: "MDBzs0eieusr3",
+        certificateImage: "/certificates/mongodb-java-developer-certificate.png",
+        certificatePdf: "/certificates/IT23762886_Mongo_Certificate.pdf",
+        credentialUrl: null,
+        description: "Official learning path covering data modeling, Java driver mechanics, aggregation pipelines, and indexing.",
+        captionIssuer: "MONGODB OFFICIAL",
+        skills: [
+          "Java Driver",
+          "CRUD Operations",
+          "Aggregation Pipelines",
+          "Schema Modeling",
+          "Indexing",
+        ],
+      },
+    ],
+  },
 };
+
+
