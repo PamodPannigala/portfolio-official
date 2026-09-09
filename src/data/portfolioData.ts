@@ -204,7 +204,7 @@ export const PORTFOLIO_DATA = {
   cta: {
     primary: { text: "View Projects", href: "#projects" },
     secondary: { text: "Contact Me", href: "#contact" },
-    download: { text: "Download CV", href: "#" },
+    download: { text: "Download CV", href: "/assets/Pamod_Pannigala_CV.pdf" },
   },
 
   about: {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Download, Mail } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/data/portfolioData';
+import cvPdf from '@/assets/Pamod_Pannigala_CV.pdf';
 
 export const CTAButtons: React.FC = () => {
   return (
@@ -27,7 +28,8 @@ export const CTAButtons: React.FC = () => {
 
         {/* Download CV */}
         <a
-          href={PORTFOLIO_DATA.cta.download.href}
+          href={cvPdf || PORTFOLIO_DATA.cta.download.href}
+          download="Pamod-Pannigala-CV.pdf"
           className="group inline-flex items-center justify-center gap-1.5 px-3.5 py-3.5 min-h-[44px] text-text-secondary font-body font-medium text-sm transition-all duration-300 ease-out hover:text-accent-cyan hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-accent-cyan rounded-md"
         >
           <Download className="w-4 h-4 text-text-muted group-hover:text-accent-cyan transition-colors" />
